@@ -1,0 +1,406 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: repeating-linear-gradient(90deg, hsla(253,0%,96%,0.05) 0px, hsla(253,0%,96%,0.05) 1px,transparent 1px, transparent 104px),repeating-linear-gradient(0deg, hsla(253,0%,96%,0.05) 0px, hsla(253,0%,96%,0.05) 1px,transparent 1px, transparent 104px),repeating-linear-gradient(0deg, hsla(253,0%,96%,0.07) 0px, hsla(253,0%,96%,0.07) 1px,transparent 1px, transparent 26px),repeating-linear-gradient(90deg, hsla(253,0%,96%,0.07) 0px, hsla(253,0%,96%,0.07) 1px,transparent 1px, transparent 26px),linear-gradient(45deg, hsl(213,62%,51%),hsl(213,62%,51%));
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: azure;
+    margin-bottom: 10px;
+}
+h3 {
+    color: azure;
+    font-size: 30px;
+    font-weight: 500px;
+    font-style: italic;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: aliceblue;
+}
+
+.wrapper.small {
+    margin-top: 5%;
+    height: 100%;
+    min-height: 30vh;
+    width: 100%;
+}
+
+.form-box {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.buttons-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    background-color: transparent;
+    color: white;
+    padding: 10px 15px;
+    border-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: white;
+    color: black;
+}
+.main-controller-page{
+    position: relative;
+}
+.model3d {
+    margin-top: 93px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 50%;
+    margin-left: 5%;
+}
+
+.arrow-controlls {
+    position: absolute;
+    left: 0;
+    margin-top: 90px;
+    width: 25%;
+    height: 30%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid white;
+    padding: 10px;
+}
+.settings-controlls{
+    left: 0;
+    position: absolute;
+    width: 40%;
+    height: 30%;
+    margin-left: 30%;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid white;
+}
+.mbot-connection-controlls{
+    right: 0;
+    position: absolute;
+    width: 25%;
+    height: 30%;
+    margin-right: 5%;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid white;
+}
+
+.arrow-controlls button.LEFT {
+    background-color: transparent;
+    background-image: url("/images/leftkey.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: auto;
+    height: 55px;
+    width: 55px;
+}
+
+.arrow-controlls button.RIGHT {
+    background-color: transparent;
+    background-image: url("/images/rightkey.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    height: 55px;
+    width: 55px;
+}
+.arrow-controlls button.UP {
+    background-color: transparent;
+    background-image: url("/images/upkey.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 55px;
+    width: 55px;
+}
+.arrow-controlls button.DOWN {
+    background-color: transparent;
+    background-image: url("/images/downkey.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 55px;
+    width: 55px;
+}
+
+#mbot2Model{
+    min-height: 100%;
+    max-height: 200%;
+    min-width: 100%;
+    max-width: 200%;
+    margin-top: -5%;
+}
+
+.arrow-controlls button {
+    width: 80px;
+    height: 30px;
+    border: none;
+    background-color: lightgray;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 5px;
+}
+
+.lineFolowerContainer{
+    display: flex;
+}
+.settings-p {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 500px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#lineFollower{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+#suicidePrev{
+    margin-left: 1rem;
+    margin-right: 2.4rem;
+}
+.farbe-unter-mbot-button{
+    margin-top: 1rem;
+    margin-left: 10px;
+    width: 10rem;
+    height: 1rem;
+}
+.scp{
+    margin-left: -6rem;
+}
+.udssr{
+    margin-left: -10.2rem;
+}
+.uss{
+    margin-left: -3rem;
+    margin-right: 1rem;
+}   
+.bs{
+    margin-right: 10px;
+}
+.fut{
+    margin-left: -4.5rem;
+}
+.lf{
+    margin-left: -30px;
+}
+.lfrf{
+    margin-left: -2rem;
+}
+.colorbuttons{
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+.b1, .b2, .b3, .b4, .b5{
+    margin-right: 1rem;
+}
+.colorb{
+    min-width: 20px;
+    min-height: 20px;
+}
+
+.main-controll-page{
+    pointer-events: none;
+    opacity: 0.2;
+}
+.wrapper{
+    color: #fff;
+    pointer-events:all;
+    opacity: 1;
+}
+
+.dropbtn {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border: 2px solid white;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 white;
+    z-index: 1;
+    
+    border: 2px solid white;
+  }
+  
+  .dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+@media only screen and (max-width: 1270px) {
+
+    .arrow-controlls{
+        left: 0;
+        position: absolute;
+        width: 35%;
+        height: 30%;
+        margin-left: 5%;
+    }
+    .settings-controlls{
+        left: 0;
+        position: absolute;
+        width: 55%;
+        height: 30%;
+        margin-left: 40%;
+        margin-top: 90px;
+    }
+
+    .mbot-connection-controlls{
+        left: 5%;
+        top: 80%;
+        position: absolute;
+        width: 35%;
+        height: 30%;
+        margin-right: 5%;
+        margin-top: 90px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .arrow-controlls{
+        left: 10%;
+        position: absolute;
+        width: 70%;
+        height: 35%;
+        margin-left: 5%;
+    }
+    .settings-controlls{
+        left: -25%;
+        top: 85%;
+        position: absolute;
+        width: 70%;
+        height: 30%;
+        margin-top: 90px;
+    }
+
+    .mbot-connection-controlls{
+        left: 15%;
+        top: 115%;
+        position: absolute;
+        width: 70%;
+        height: 30%;
+        margin-right: 5%;
+        margin-top: 90px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    h3{
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 610px) {
+    .settings-controlls{
+        left: -25%;
+        top: 85%;
+        position: absolute;
+        width: 70%;
+        height: 40%;
+        margin-top: 90px;
+    }
+    .mbot-connection-controlls{
+        left: 15%;
+        top: 124.5%;
+        position: absolute;
+        width: 70%;
+        height: 30%;
+        margin-right: 5%;
+        margin-top: 90px;
+    }
+
+    .farbe-unter-mbot-button{
+        margin-top: 1rem;
+        min-width: 1rem;
+        max-width: 30%;
+        height: 1rem;
+        margin-right: 0.5rem;
+    }
+    .lfc{
+        margin-top: -2rem;
+    }
+    .lft{
+        margin-top: .2rem;
+        margin-left: 2rem;
+    }
+    .colorbuttons{
+        margin-top: 2.5rem;
+        margin-left: -10.5rem;
+    }
+    .scp1{
+        margin-right: 0rem;
+        margin-left: 3.8rem;
+    }
+    .scpcb{
+        margin-top: -1rem;
+        margin-left: 5rem;
+    }
+    .bs{
+        margin-top: 2.5rem;
+        margin-left: -11.7rem;
+    }
+    .bsm{
+        margin-top: 2.5rem;
+    }
+    .b1, .b2, .b3, .b4, .b5{
+        margin-right: 1rem;
+    }
+    .colorb{
+        min-width: 20px;
+        min-height: 20px;
+    }
+    .uss{
+        margin-left: 8.5rem;
+    }
+    .fut{
+        margin-left: 5.5rem;
+    }
+}

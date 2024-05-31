@@ -1,0 +1,24 @@
+Geschwindigkeiten für LineFollower noch anpassen (Zeilen 30 & 31 in webApp-Connection.js)
+
+MBot-Script mit Multithreading für SuicidePrevention testen
+
+
+
+
+
+Style-Probleme(HAAS):
+Überschrift & Dino-Game erscheinen zu hoch oben beim Starten
+Stylen der Charts
+Stylen der Controls (zu weit oben)
+Stylen der großen MBot-Auswahl (zu weit links & innere Border zu weit unten(zu groß?))
+
+
+
+Infos für Style der MBot-Listen:
+
+Klassen VERBUNDENER MBots:
+connected
+connection-li
+
+Klassen NICHT VERBUNDENER MBots:
+connection-li

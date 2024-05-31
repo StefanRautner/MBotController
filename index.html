@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBot-Controller</title>
+    <link rel="icon" type="image/x-icon" href="./images/icons/icon.ico">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/controller.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/form-temp.css">
+
+    <!-- Chart Library einbinden -->
+    <script src="./librarys/chart/chart.js"></script>
+
+    <!-- MBot2 Connection Skript -->
+    <script src="./scripts/webApp-Connection.js"></script>
+</head>
+<body>
+<header>
+    <h2 class="logo"><a style="text-decoration: none; color: inherit;" href="https://github.com/Mbot2-Group5">Group 5</a></h2>
+    <nav class="navigation">
+        <div class="button-container-small">
+            <button class="btnLogin-popup" id="phone-login">Login</button>
+            <div class="icon-menu">&#9776;</div> <!-- Hamburger icon for mobile -->
+        </div>
+        <a class="anav" href="start.html#home">Home</a>
+        <a class="anav" href="start.html#about">About</a>
+        <a class="anav" href="start.html#team">Team</a>
+        <a class="anav" href="start.html#log">Log</a>
+        <a class="anav" href="index.html">Controller</a>
+        <button class="btnLogin-popup" id="one-login">Dino-Game</button>
+    </nav>
+
+    <!-- 3D Model Viewer -->
+    <script type="module" src="./scripts/modelViewer.js"></script>
+</header>
+
+<div class="wrapper">
+    <div class="form-box">
+        <div style="display: none" id="settingForIntermediaryServer">
+            <p>Bitte geben Sie die IP-Addresse des Zwischenserver ein:</p>
+            <input id="IPAddressOfIntermediaryServer" type="text">
+        </div>
+        <h2>Connect</h2>
+        <span class="icon-close" onclick="closeConnecting()"><ion-icon name="close"></ion-icon></span>
+        <form class="searchMBot" action="#">
+            <div class="wrapper small">
+                <ul id="showPossibleMBots"></ul>
+                <div id="textForWhileSearchingMBot" class="info-text">
+                    <p class="search_label">Searching</p>
+                </div>
+            </div>
+        </form>
+        <div class="buttons-container">
+            <label for="zwischenserverGestartet">
+                Zwischenserver gestartet
+                <input type="checkbox" id="zwischenserverGestartet" onclick="">
+            </label>
+            <button class="button" onclick="getPossibleMBots()">Reload</button>
+            <button class="button" onclick="connectToMBot2()">Connect</button>
+            <button class="button" onclick="addToFormerConnected()">Save</button>
+        </div>
+    </div>
+</div>
+
+<div class="main-controll-page">
+    <div class="model3d">
+        <h3>3D-Model:</h3>
+        <model-viewer id="mbot2Model" src="./Mbot2/mbot2_model.glb" alt="A 3D model"
+                      orientation="0 0 3.155"></model-viewer>
+    </div>
+    <div class="controlls">
+        <div class="arrow-controlls">
+            <h3 class="controllertext">Controller:</h3>
+            <div class="button-left">
+                <button id="button-controll" class="UP" onmousedown="startMoving(this)" onmouseup="stopMoving(this)"
+                        ontouchstart="startMoving(this)" ontouchend="stopMoving(this)"></button>
+            </div>
+            <div class="button-top">
+                <button id="button-controll1" class="LEFT" onmousedown="startMoving(this)" onmouseup="stopMoving(this)"
+                        ontouchstart="startMoving(this)" ontouchend="stopMoving(this)"></button>
+                <button id="button-controll2" class="DOWN" onmousedown="startMoving(this)" onmouseup="stopMoving(this)"
+                        ontouchstart="startMoving(this)" ontouchend="stopMoving(this)"></button>
+                <button id="button-controll3" class="RIGHT" onmousedown="startMoving(this)" onmouseup="stopMoving(this)"
+                        ontouchstart="startMoving(this)" ontouchend="stopMoving(this)"></button>
+            </div>
+        </div>
+        <div class="settings-controlls">
+            <h3>Settings:</h3>
+            <div class="lineFolowerContainer lf">
+                <p class="settings-p lfrf lft">Line Follower: </p>
+                <input class="settings-p lfrf lfc" type="checkbox" id="lineFollower" name="lineFolowerCheckBox">
+
+                <div class="colorbuttons">
+                    <button id="lightSensorLeft" class="colorb b1"></button>
+                    <button id="lightSensorMiddleLeft" class="colorb b2"></button>
+                    <button id="lightSensorMiddleRight" class="colorb b3"></button>
+                    <button id="lightSensorRight" class="colorb b4"></button>
+                </div>
+            </div>
+            <div class="lineFolowerContainer scp">
+                <p class="settings-p scp1">Suicide Prev.: </p>
+                <input class="settings-p scpcb" type="checkbox" id="suicidePrev" name="SuicidePrevCheckBox">
+            </div>
+            <div class="lineFolowerContainer fut">
+                <p class="settings-p fum">Farbe unter MBot: </p>
+                <button id="rgbSensor" class="farbe-unter-mbot-button"></button>
+            </div>
+            <div class="lineFolowerContainer lf">
+                <p class="settings-p lfrf lft">Ambiente-Beleuchtung: </p>
+                <div class="colorbuttons">
+                    <input type="color" id="leftLED" onchange="ambientColorPicker(this.id)">
+                    <input type="color" id="leftMiddleLED" onchange="ambientColorPicker(this.id)">
+                    <input type="color" id="middleLED" onchange="ambientColorPicker(this.id)">
+                    <input type="color" id="rightMiddleLED" onchange="ambientColorPicker(this.id)">
+                    <input type="color" id="rightLED" onchange="ambientColorPicker(this.id)">
+                </div>
+            </div>
+        </div>
+        <div class="mbot-connection-controlls">
+            <h3>Connection:</h3>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="showFormerMBots()">SELECT</button>
+                <div class="dropdown-content">
+                    <ul id="showFormerConnectedMBots"></ul>
+                </div>
+            </div>
+            <button class="Connect" onclick="connectToFormerMBot()">Connect</button>
+            <button class="Disconnect" onclick="disconnectFromMBot2()">Disconnect</button>
+            <button onclick="removeFromFormerConnected()">Entfernen</button>
+        </div>
+        <div>
+            <canvas id="beschleunigungsChart"></canvas>
+            <canvas id="abstandsChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="librarys/ionicons/ionicons-lib.esm.js"></script>
+<script nomodule src="librarys/ionicons/ionicons-lib.js"></script>
+<script src="./scripts/gamebutton.js"></script>
+<script src="./scripts/connection.js"></script>
+<script src="./scripts/charts.js"></script>
+<script type="module" src="librarys/modelViewer/model-viewer-lib.js"></script>
+
+<script>
+    window.addEventListener("resize", function () {
+        const label1 = document.querySelector(".fum");
+        if (window.innerWidth < 610) {
+            label1.textContent = "Farbe:";
+        } else {
+            label1.textContent = "Farbe unter MBOT:";
+        }
+    });
+
+    function scaleUp(element) {
+        element.style.transform = "scale(1.3)";
+    }
+
+    function scaleDown(element) {
+        element.style.transform = "scale(1)";
+    }
+
+    // Attach event listeners to button for mouse and touch events
+    document.querySelector("#button-controll").addEventListener("mouseup", function () {
+        scaleDown(this);
+    });
+    document.querySelector("#button-controll1").addEventListener("mouseup", function () {
+        scaleDown(this);
+    });
+    document.querySelector("#button-controll2").addEventListener("mouseup", function () {
+        scaleDown(this);
+    });
+    document.querySelector("#button-controll3").addEventListener("mouseup", function () {
+        scaleDown(this);
+    });
+
+    document.querySelector("#button-controll").addEventListener("touchend", function () {
+        scaleDown(this);
+    });
+    document.querySelector("#button-controll1").addEventListener("touchend", function () {
+        scaleDown(this);
+    });
+    document.querySelector("#button-controll2").addEventListener("touchend", function () {
+        scaleDown(this);
+    });
+    document.querySelector("#button-controll3").addEventListener("touchend", function () {
+        scaleDown(this);
+    });
+
+    document.querySelector("#button-controll").addEventListener("mouseleave", function () {
+        scaleDown(this);
+    });
+    document.querySelector("#button-controll1").addEventListener("mouseleave", function () {
+        scaleDown(this);
+    });
+    document.querySelector("#button-controll2").addEventListener("mouseleave", function () {
+        scaleDown(this);
+    });
+    document.querySelector("#button-controll3").addEventListener("mouseleave", function () {
+        scaleDown(this);
+    });
+
+    document.addEventListener('keydown', function (event) {
+        // Check if the pressed key is W, A, S, or D
+        switch (event.key) {
+            case 'w':
+            case 'W':
+                // Handle the W key press
+                scaleUp(document.querySelector("#button-controll"));
+                break;
+            case 'a':
+            case 'A':
+                // Handle the A key press
+                scaleUp(document.querySelector("#button-controll1"));
+                break;
+            case 's':
+            case 'S':
+                // Handle the S key press
+                scaleUp(document.querySelector("#button-controll2"));
+                break;
+            case 'd':
+            case 'D':
+                // Handle the D key press
+                scaleUp(document.querySelector("#button-controll3"));
+                break;
+            default:
+                // Ignore other key presses
+                break;
+        }
+    });
+
+    document.addEventListener('keyup', function (event) {
+        // Check if the key is released
+        switch (event.key) {
+            case 'w':
+            case 'W':
+                // Handle the W key press
+                scaleDown(document.querySelector("#button-controll"));
+                break;
+            case 'a':
+            case 'A':
+                // Handle the A key press
+                scaleDown(document.querySelector("#button-controll1"));
+                break;
+            case 's':
+            case 'S':
+                // Handle the S key press
+                scaleDown(document.querySelector("#button-controll2"));
+                break;
+            case 'd':
+            case 'D':
+                // Handle the D key press
+                scaleDown(document.querySelector("#button-controll3"));
+                break;
+            default:
+                // Ignore other key presses
+                break;
+        }
+    });
+</script>
+</body>
+</html>

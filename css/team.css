@@ -1,0 +1,56 @@
+.cards {
+  margin-left: 5%; /* Adjust margins for smaller screens */
+  margin-right: 5%;
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: center; /* Center items horizontally */
+  gap: 20px; /* Add some gap between grid items */
+  padding: 25px 0;
+  list-style: none;
+  overflow-x: auto;
+}
+
+.card {
+  flex: 1 0 20rem; /* Flexible width with minimum width of 20rem */
+  margin-right: 3%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background:#117ac9;
+  border-radius: 25px;
+  transition: all 0.5s;
+}
+
+.card:hover {
+  transform: scale(0.98);
+}
+
+.iconTeam {
+  width: 75px;
+  border-radius: 50%;
+  transition: transform 750ms;
+}
+
+.iconTeam:hover {
+  transform: scale(1.2);
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  color: white;
+}
+
+.card-sub {
+  font-size: 1rem;
+  color: white; 
+}
+
+.card-content {
+  margin-top: 20px; 
+}  
+
+.card-text{
+  color: white;
+}

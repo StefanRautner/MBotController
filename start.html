@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBOT</title>
+    <link rel="icon" type="image/x-icon" href="./images/icons/icon.ico">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/about.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/team.css">
+    <link rel="stylesheet" href="./css/download.css">
+
+
+    <!-- Manifest einbinden -->
+    <link rel="manifest" href="./manifest.json">
+
+    <!-- Service-Worker registrieren-->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./service-worker.js')
+                .then((registration) => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch((error) => {
+                    console.error('Service Worker registration failed:', error);
+                });
+        }
+    </script>
+</head>
+<body>
+<header>
+    <h2 class="logo"><a style="text-decoration: none; color: inherit;" href="https://github.com/Mbot2-Group5">Group 5</a></h2>
+    <nav class="navigation">
+        <div class="button-container-small">
+            <button class="btnLogin-popup" id="phone-login">Login</button>
+            <div class="icon-menu">&#9776;</div> <!-- Hamburger icon for mobile -->
+        </div>
+        <a class="anav" href="start.html#home">Home</a>
+        <a class="anav" href="start.html#about">About</a>
+        <a class="anav" href="start.html#team">Team</a>
+        <a class="anav" href="start.html#log">Log</a>
+        <a class="anav" href="index.html">Controller</a>
+        <button class="btnLogin-popup" id="one-login">Dino-Game</button>
+    </nav>
+</header>
+
+<div class="main">
+    <section id="home">
+        <div class="parallax-container">
+            <div class="custom-shape-divider-top-1713248181">
+                <svg class="waves" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                     preserveAspectRatio="none">
+                    <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                          opacity=".25" class="shape-fill"></path>
+                    <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                          opacity=".5" class="shape-fill"></path>
+                    <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+                          class="shape-fill"></path>
+                </svg>
+            </div>
+            <h1 id="parallax-text">MBot-Controller</h1>
+            <div class="content"></div>
+        </div>
+
+    </section>
+    <section id="about">
+        <h2 id="h2style">Features</h2> <br><br>
+        <div class="about-card-container">
+            <ul class="about-cards-small-cont">
+                <li class="aboutcard">
+                    <div class="about-card-title">
+                        <h2 class="about-title">Controlls</h2>
+                    </div>
+                    <div class="about-content">
+                        <div class="about-img">
+                            <img src="images/controller.png" width="150" height="150" alt="image here">
+                        </div>
+                        <br>
+                        <div class="about-footer">
+                            <div class="about-text">"The MBot can detect and follow a line."</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="aboutcard">
+                    <div class="about-card-title">
+                        <h2 class="about-title">Speed</h2>
+                    </div>
+                    <div class="about-content">
+                        <div class="about-img">
+                            <img src="images/speed.png" width="150" height="150" alt="image here">
+                        </div>
+                        <br>
+                        <div class="about-footer">
+                            <div class="about-text">"The speed of the MBot is adjustable."</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="aboutcard">
+                    <div class="about-card-title">
+                        <h2 class="about-title">Display</h2>
+                    </div>
+                    <div class="about-content">
+                        <div class="about-img">
+                            <img src="images/display.png" width="150" height="150" alt="image here">
+                        </div>
+                        <br>
+                        <div class="about-footer">
+                            <div class="about-text">"The values from the Mbot are displayed on the screen."</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="about-card-container">
+            <ul class="about-cards-small-cont">
+                <li class="aboutcard">
+                    <div class="about-card-title">
+                        <h2 class="about-title">Detect</h2>
+                    </div>
+                    <div class="about-content">
+                        <div class="about-img">
+                            <img src="images/detect.png" width="150" height="150" alt="image here">
+                        </div>
+                        <br>
+                        <div class="about-footer">
+                            <div class="about-text">"The MBot is capable of being controlled in various ways."</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="aboutcard">
+                    <div class="about-card-title">
+                        <h2 class="about-title">Connection</h2>
+                    </div>
+                    <div class="about-content">
+                        <div class="about-img">
+                            <img src="images/wlan.png" width="150" height="150" alt="image here">
+                        </div>
+                        <br>
+                        <div class="about-footer">
+                            <div class="about-text">"A connection to the MBot is possible via WLAN."</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="aboutcard">
+                    <div class="about-card-title">
+                        <h2 class="about-title">Safety</h2>
+                    </div>
+                    <div class="about-content">
+                        <div class="about-img">
+                            <img src="images/safety.png" width="150" height="150" alt="image here">
+                        </div>
+                        <br>
+                        <div class="about-footer">
+                            <div class="about-text">"To ensure the safety of the MBot, there is a suicide prevention
+                                feature."
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+
+        <div id="about-text-container">
+            <h2 id="h2style">About</h2>
+            <section id="horizontal-scoll">
+                <div class="horizontal-scoll-wrapper">
+                    <div class="horizontal">
+                        <div>
+                            <div class="card">
+                                <h2>Why?</h2>
+                                <p id="p-about">This program was written for a school project as part of a course. The
+                                    requirements were communicated to us gradually, and we tried our best until it
+                                    worked. The project was structured according to the SCRUM principle to learn the
+                                    system. For this project, we had half a year, where we had a Sprint Review every 3
+                                    weeks and a Daily Scrum meeting every week, as we only had 4 hours per week.</p>
+                                <br>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card">
+                                <h2>Who&How?</h2>
+                                <p id="p-about">Our team consists of 3 students who tried to solve the project in
+                                    synchronization with each other. In addition to programming, we also invested a lot
+                                    of time in planning to achieve the best possible result. In the beginning, we
+                                    brainstormed the user stories that we wanted to implement and assigned a value
+                                    (story points) to them so that we knew the importance of features for the customer.
+                                    After that, we selected various user stories that we wanted to implement in a sprint
+                                    (3 weeks).</p> <br>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card">
+                                <h2>What?</h2>
+                                <p id="p-about">The connection to the Mbot is facilitated through TCP/UDP, requiring an
+                                    internet connection between the website and Mbot. Additionally, up to 3 MBots can be
+                                    connected, and users can choose which one to control. The control can be done using
+                                    a keyboard, controller (PS4, XBOX One), or even touch for mobile devices.</p> <br>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card">
+                                <h2>Account</h2>
+                                <p id="p-about">To use the Mbot, you need to be logged in to save the data for future
+                                    add-ons, features, and premium content for the future. Your data is stored in a
+                                    Google Firebase database, which is protected and encrypted by provided custom
+                                    security measures. If you press "Stay logged in," a cookie is stored on the website
+                                    to enable this feature.</p> <br>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card">
+                                <h2>Download</h2>
+                                <p id="p-about">Hi there, now you can actually download this Website and use it like an
+                                    app! For that, just press on the download button and you are good to go! Thanks for
+                                    the support!</p> <br>
+                                <div class="bird-container">
+                                    <div class="button button--hoo">
+                                        <button class="button__wrapper" onclick="installWebApp()">
+                                            <span class="button__text">DOWNLOAD</span>
+                                        </button>
+                                        <div class="characterBox">
+                                            <div class="character wakeup">
+                                                <div class="character__face"></div>
+                                                <div class="charactor__face2"></div>
+                                                <div class="charactor__body"></div>
+                                            </div>
+                                            <div class="character wakeup">
+                                                <div class="character__face"></div>
+                                                <div class="charactor__face2"></div>
+                                                <div class="charactor__body"></div>
+                                            </div>
+                                            <div class="character">
+                                                <div class="character__face"></div>
+                                                <div class="charactor__face2"></div>
+                                                <div class="charactor__body"></div>
+                                                <p class="download-progress"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <div class="team-log-backg">
+        <section id="team">
+            <h2 id="h2style">Team</h2>
+            <div class="card-container">
+                <ul class="cards">
+                    <li class="card tobias">
+                        <article>
+                            <div class="row">
+                                <div class="column">
+                                    <img class="iconTeam" src="images/Tobias.JPG" alt="Frank Icon">
+                                </div>
+                                <div class="column">
+                                    <h3 class="card-title">Tobias Haas</h3>
+                                    <p class="card-sub">Website / GUI</p>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-text">"Life is pleasant. Death is peaceful. It's the transition that's
+                                    troublesome." - someone</p>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="card stefan">
+                        <article>
+                            <div class="row">
+                                <div class="column">
+                                    <img class="iconTeam" src="images/Stefan.JPG" alt="Cohn Icon">
+                                </div>
+                                <div class="column">
+                                    <h3 class="card-title">Stefan Rautner</h3>
+                                    <p class="card-sub">Backend - Dev.</p>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-text">"The problem with the world is that the intelligent people are full
+                                    of doubts, while the stupid ones are full of confidence! I don't know where i belong
+                                    to.." - unknown</p>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="card patrick">
+                        <article>
+                            <div class="row">
+                                <div class="column">
+                                    <img class="iconTeam" src="images/Patrick.png" alt="Frank Icon">
+                                </div>
+                                <div class="column">
+                                    <h3 class="card-title">Patrick Thor</h3>
+                                    <p class="card-sub">Documentation / Designer</p>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-text">"A clever person takes notice of everything; a stupid one makes
+                                    comment about everything." Hi there :)</p>
+                            </div>
+                        </article>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section id="log">
+            <h2 id="h2style">Log</h2>
+            <h3 id="h3-log">v0.3</h3>
+            <p id="p-log">+ Controlls fixed <br>+ new Website-Overlay <br>+ try WLAN Connection</p>
+            <h3 id="h3-log">v0.2</h3>
+            <p id="p-log">+ Controlls extended <br>+ Login/Register System established<br>+ Line Follower added<br>+
+                Suicide Prevention added </p>
+            <h3 id="h3-log">v0.1</h3>
+            <p id="p-log">+ Basic Controlls added <br>+ Test Website for Controlls Created</p>
+            <br>
+            <h3 id="h3-log">You can Download the Python-Script for the MBot2 <a href="#" download="./Mbot2/NetworkConnection_MBot2.py">HERE</a>
+            </h3>
+            <br>
+        </section>
+    </div>
+</div>
+
+<!--Scripts-->
+<script src="./scripts/website_logic.js"></script>
+<script src="./scripts/download.js"></script>
+<script src="./scripts/gamebutton.js"></script>
+<script type="module" src="./librarys/ionicons/ionicons-lib.esm.js"></script>
+<script nomodule src="./librarys/ionicons/ionicons-lib.js"></script>
+<script src="./librarys/gsap/gsap.min.js"></script>
+<script src="./librarys/gsap/ScrollTrigger.min.js"></script>
+<script src="/scripts/about.js"></script>
+</body>
+</html>
