@@ -149,12 +149,12 @@ async def sendDataToMBot2FromWebApp(websocket):
             elif message == "Close":
                 tcp_socket.send("Disconnect".encode('utf-8'))
                 tcp_socket.close()
+                await websocket.close()
                 print("Client closed")
                 print("Disconnected from Client & MBot")
                 print("Deleting the Intermediary Server...")
                 time.sleep(1)
                 await deleteScript()
-                await websocket.close()
                 break
             elif message == "searchForMBots":
                 if time.time() - last_execution >= duration + 2:
@@ -173,8 +173,8 @@ async def sendDataToMBot2FromWebApp(websocket):
         print(f"Error while sending message to TCP-Server: {e}")
         tcp_socket.send("Disconnect".encode('utf-8'))
         tcp_socket.close()
-        await deleteScript()
         await websocket.close()
+        await deleteScript()
 
 
 # Main

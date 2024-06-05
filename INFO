@@ -1,6 +1,7 @@
 Geschwindigkeiten für LineFollower noch anpassen (Zeilen 30 & 31 in webApp-Connection.js)
 
-MBot-Script mit Multithreading für SuicidePrevention testen
+MBot-Script mit Multithreading für SuicidePrevention testen & debuggen
+
 
 
 

@@ -35,7 +35,7 @@ let lineFollowerSpeedRight = 0;
 
 //Geschwindigkeiten
 let speed = 0;
-const addedSpeedForCurve = 10;
+const addedSpeedForCurve = 20;
 const maxReverseSpeed = -100;
 const maxForwardSpeed = 100;
 
@@ -135,14 +135,14 @@ function createWebSocketConnection() {
 
                 //Überprüfen, ob der LineFollower eingeschalten ist (wenn ja, Daten verarbeiten)
                 if (document.getElementById("lineFollower").checked) {
-                    const lightSensorLeft = "#" + (data.rgbSensorLeft).slice(2);
-                    const lightSensorMiddleLeft = "#" + (data.rgbSensorMiddleLeft).slice(2);
-                    const lightSensorMiddleRight = "#" + (data.rgbSensorMiddleRight).slice(2);
-                    const lightSensorRight = "#" + (data.rgbSensorRight).slice(2);
-                    await lineFollower(lightSensorLeft, lightSensorMiddleLeft, lightSensorMiddleRight, lightSensorRight);
+                    //Farbflächen des LineFollower setzen
+                    document.getElementById("lightSensorLeft").style.background = "#" + (data.rgbSensorLeft).slice(2);
+                    document.getElementById("lightSensorMiddleLeft").style.background = "#" + (data.rgbSensorMiddleLeft).slice(2);
+                    document.getElementById("lightSensorMiddleRight").style.background = "#" + (data.rgbSensorMiddleRight).slice(2);
+                    document.getElementById("lightSensorRight").style.background = "#" + (data.rgbSensorRight).slice(2);
+                    //LineFollower
+                    await lineFollower("#" + (data.rgbSensorMiddleLeft).slice(2), "#" + (data.rgbSensorMiddleRight).slice(2));
                 } else if (lineFollowerSpeedLeft !== 0 || lineFollowerSpeedRight !== 0) {
-                    left = 0;
-                    right = 0;
                     lineFollowerSpeedLeft = 0;
                     lineFollowerSpeedRight = 0;
                 }
@@ -300,7 +300,7 @@ async function communicating() {
 }
 
 //Funktion für die Berechnungen des LineFollowers
-async function lineFollower(lightSensorLeft, lightSensorMiddleLeft, lightSensorMiddleRight, lightSensorRight) {
+async function lineFollower(lightSensorMiddleLeft, lightSensorMiddleRight) {
     try {
         if (lightSensorMiddleLeft !== "#ffffff" && lightSensorMiddleRight !== "#ffffff") {
             lineFollowerSpeedLeft = lineFollowerSpeed;
@@ -315,12 +315,6 @@ async function lineFollower(lightSensorLeft, lightSensorMiddleLeft, lightSensorM
             lineFollowerSpeedLeft = -lineFollowerSpeed;
             lineFollowerSpeedRight = -lineFollowerSpeed;
         }
-
-        //Farbflächen des LineFollower setzen
-        document.getElementById("lightSensorLeft").style.background = lightSensorLeft;
-        document.getElementById("lightSensorMiddleLeft").style.background = lightSensorMiddleLeft;
-        document.getElementById("lightSensorMiddleRight").style.background = lightSensorMiddleRight;
-        document.getElementById("lightSensorRight").style.background = lightSensorRight;
     } catch (error) {
         console.error(`Error while calculating commands in LineFollower: ${error}`);
     }
@@ -810,12 +804,11 @@ window.addEventListener("beforeunload", async function () {
         // Kommunikation beenden
         initialized = false;
 
-        //5 Sekunde warten, um sicherzugehen, dass MBot getrennt ist
-        await new Promise(resolve => setTimeout(resolve, 5000));
-
         // Schließen-Nachricht senden
         if (socket.readyState === WebSocket.OPEN) {
             socket.send("Close");
+            //2 Sekunde warten, um sicherzugehen, dass MBot getrennt ist
+            await new Promise(resolve => setTimeout(resolve, 2000));
             socket.close();
         }
     } catch (error) {
