@@ -11,7 +11,7 @@ def install_packages(packages):
 
 
 # Liste der benötigten Module
-required_modules = ['socket', 'websockets', 'asyncio', 'time', 'json']
+required_modules = ['socket', 'websockets', 'asyncio', 'time', 'json', 'threading']
 
 # Ausgabe für Benutzer
 print("Installing required modules")
@@ -32,6 +32,7 @@ print("All required modules installed successfully!")
 # Ab hier startet das eigentliche Script (alles oberhalb nur zum Installieren der benötigten Bibliotheken)
 
 # imports
+import threading
 import socket
 import websockets
 import asyncio
@@ -117,23 +118,30 @@ def openTCPClient(address):
 
 
 # Daten von MBot2(TCP) über WebSocket an WebApp senden
-async def sendDataToWebAppFromMBot2():
-    try:
-        if webApp_Client:
-            data = tcp_socket.recv(1024)
-            if data:
-                print("Received Data from MBot, sending to WebApp now")
-                await webApp_Client.send(data)
-    except Exception as e:
-        print(f"Error while receiving message from TCP-Server: {e}")
+def sendDataToWebAppFromMBot2():
+    global webApp_Client, tcp_socket
+    while True:
+        try:
+            if webApp_Client:
+                data = tcp_socket.recv(1024)
+                if data:
+                    print("Received Data from MBot, sending to WebApp now")
+                    asyncio.run(webApp_Client.send(data))
+        except ConnectionAbortedError:
+            print("Connection was aborted by the TCP server")
+            break
+        except Exception as e:
+            print(f"Error while receiving message from TCP-Server: {e}")
+            break
+    tcp_socket.close()
 
 
 # Script vom PC des Users löschen & Console schließen, wenn der WebApp-Controller geschlossen wird
 async def deleteScript():
-    print("Deleting Script")
+    print("Deleting Script...")
     script_path = os.path.realpath(__file__)
     os.remove(script_path)
-    sys.exit()
+    os._exit(0)
 
 
 # Daten von WebApp(WebSocket) über TCP an MBot2 senden
@@ -143,12 +151,15 @@ async def sendDataToMBot2FromWebApp(websocket):
     try:
         async for message in websocket:
             if message == "Disconnect":
-                tcp_socket.send("Disconnect".encode('utf-8'))
-                tcp_socket.close()
-                print("MBot disconnected")
+                if tcp_socket:
+                    tcp_socket.send("Disconnect".encode('utf-8'))
+                    tcp_socket.close()
+                    print("MBot disconnected")
             elif message == "Close":
-                tcp_socket.send("Disconnect".encode('utf-8'))
-                tcp_socket.close()
+                print(tcp_socket)
+                if tcp_socket:
+                    tcp_socket.send("Disconnect".encode('utf-8'))
+                    tcp_socket.close()
                 await websocket.close()
                 print("Client closed")
                 print("Disconnected from Client & MBot")
@@ -165,14 +176,19 @@ async def sendDataToMBot2FromWebApp(websocket):
             elif not first_message:
                 first_message = True
                 openTCPClient(message)
+                threading.Thread(target=sendDataToWebAppFromMBot2, daemon=True).start()
             else:
                 print("Received Data from WebApp, sending to MBot now")
-                tcp_socket.send(message)
-                await sendDataToWebAppFromMBot2()
+                if isinstance(message, str):
+                    tcp_socket.send(message.encode('utf-8'))
+                else:
+                    tcp_socket.send(message)
     except Exception as e:
         print(f"Error while sending message to TCP-Server: {e}")
-        tcp_socket.send("Disconnect".encode('utf-8'))
-        tcp_socket.close()
+        if tcp_socket:
+            tcp_socket.send("Disconnect".encode('utf-8'))
+            tcp_socket.close()
+        time.sleep(1)
         await websocket.close()
         await deleteScript()
 

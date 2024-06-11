@@ -28,8 +28,8 @@ let ultrasonicSensorData = [];
 let accelerometerData = [];
 
 //Geschwindigkeiten für den LineFollower
-const lineFollowerSpeed = 17.5;       //DEBUG: muss noch auf Testergebnis von Testscript gesetzt werden
-const lineFollowerCurveSpeed = 15;  //DEBUG: muss noch auf Testergebnis von Testscript gesetzt werden
+const lineFollowerSpeed = 15;       //DEBUG: muss noch auf Testergebnis von Testscript gesetzt werden
+const lineFollowerCurveSpeed = 12.5;    //DEBUG: muss noch auf Testergebnis von Testscript gesetzt werden
 let lineFollowerSpeedLeft = 0;
 let lineFollowerSpeedRight = 0;
 
@@ -142,7 +142,7 @@ function createWebSocketConnection() {
                     document.getElementById("lightSensorRight").style.background = "#" + (data.rgbSensorRight).slice(2);
                     //LineFollower
                     await lineFollower("#" + (data.rgbSensorMiddleLeft).slice(2), "#" + (data.rgbSensorMiddleRight).slice(2));
-                } else if (lineFollowerSpeedLeft !== 0 || lineFollowerSpeedRight !== 0) {
+                } else {
                     lineFollowerSpeedLeft = 0;
                     lineFollowerSpeedRight = 0;
                 }
@@ -302,15 +302,15 @@ async function communicating() {
 //Funktion für die Berechnungen des LineFollowers
 async function lineFollower(lightSensorMiddleLeft, lightSensorMiddleRight) {
     try {
-        if (lightSensorMiddleLeft !== "#ffffff" && lightSensorMiddleRight !== "#ffffff") {
-            lineFollowerSpeedLeft = lineFollowerSpeed;
-            lineFollowerSpeedRight = lineFollowerSpeed;
-        } else if (lightSensorMiddleLeft !== "#ffffff" && lightSensorMiddleRight === "#ffffff") {
+        if (lightSensorMiddleLeft !== "#ffffff" && lightSensorMiddleRight === "#ffffff") {
             lineFollowerSpeedLeft = -lineFollowerCurveSpeed;
             lineFollowerSpeedRight = lineFollowerCurveSpeed;
         } else if (lightSensorMiddleLeft === "#ffffff" && lightSensorMiddleRight !== "#ffffff") {
             lineFollowerSpeedLeft = lineFollowerCurveSpeed;
             lineFollowerSpeedRight = -lineFollowerCurveSpeed;
+        } else if (lightSensorMiddleLeft !== "#ffffff" && lightSensorMiddleRight !== "#ffffff") {
+            lineFollowerSpeedLeft = lineFollowerSpeed;
+            lineFollowerSpeedRight = lineFollowerSpeed;
         } else if (lightSensorMiddleLeft === "#ffffff" && lightSensorMiddleRight === "#ffffff") {
             lineFollowerSpeedLeft = -lineFollowerSpeed;
             lineFollowerSpeedRight = -lineFollowerSpeed;
