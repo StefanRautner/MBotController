@@ -37,12 +37,14 @@ p {
     height: 100%;
     min-height: 30vh;
     width: 100%;
+    margin-bottom: 10%;
 }
 
 .form-box {
     text-align: center;
     padding: 20px;
     border-radius: 10px;
+    position: absolute;
 }
 
 .buttons-container {
@@ -51,6 +53,11 @@ p {
     right: 10px;
     display: flex;
     gap: 10px;
+}
+
+.icon-close{
+    margin-top: -20px;
+    margin-bottom: 20px;
 }
 
 .button {
@@ -83,7 +90,7 @@ p {
 .arrow-controlls {
     position: absolute;
     left: 0;
-    margin-top: 90px;
+    margin-top: 350px;
     width: 25%;
     height: 30%;
     margin-left: 5%;
@@ -93,13 +100,16 @@ p {
     border: 2px solid white;
     padding: 10px;
 }
+
+
+
 .settings-controlls{
     left: 0;
     position: absolute;
     width: 40%;
     height: 30%;
     margin-left: 30%;
-    margin-top: 90px;
+    margin-top: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -111,7 +121,7 @@ p {
     width: 25%;
     height: 30%;
     margin-right: 5%;
-    margin-top: 90px;
+    margin-top: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -159,8 +169,9 @@ p {
     max-height: 200%;
     min-width: 100%;
     max-width: 200%;
-    margin-top: -5%;
+    margin-top: -0.5%;
 }
+
 
 .arrow-controlls button {
     width: 80px;
@@ -180,6 +191,17 @@ p {
     font-size: 20px;
     font-weight: 500px;
     font-family:Arial, Helvetica, sans-serif;
+}
+
+#beschleunigungsChartDiv{
+    margin-right:700px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+#abstandsChartDiv{
+    margin-right:700px;
+    position: relative;
 }
 
 #lineFollower{
@@ -312,6 +334,7 @@ p {
         height: 35%;
         margin-left: 5%;
     }
+   
     .settings-controlls{
         left: -25%;
         top: 85%;
@@ -320,6 +343,7 @@ p {
         height: 30%;
         margin-top: 90px;
     }
+  
 
     .mbot-connection-controlls{
         left: 15%;
@@ -339,12 +363,50 @@ p {
 }
 
 @media only screen and (max-width: 610px) {
+   
+    body {
+        width: max-content;
+        height: max-content;
+        margin: 0;
+        padding: 0;
+    }
+
+    .wrapper.small{
+        margin-bottom: 40px;
+    }
+    .p{
+        margin-top: 10px;
+    }
+    .button{
+        margin-bottom: 30px;
+    }
+    
+    .arrow-controlls{
+    
+        top: 35%;
+        position: absolute;
+        width: 70%;
+        height: 40%;
+        
+    }
+    .settings-p.fum{
+        margin-top: 35px;
+    }
+    .settings-p.scp1{
+        margin-top: 10px;
+        margin-left: 150px;
+    }
+    
+    .settings-p.scpcb{
+        margin-top: 10px;
+    }
+
     .settings-controlls{
         left: -25%;
         top: 85%;
         position: absolute;
         width: 70%;
-        height: 40%;
+        height: 45%;
         margin-top: 90px;
     }
     .mbot-connection-controlls{
@@ -357,31 +419,60 @@ p {
         margin-top: 90px;
     }
 
+    .icon-close{
+       margin-top: 20px;
+       margin-bottom: 20px;
+    }
+
+
+    #beschleunigungsChartDiv{
+         margin-right: 0px;
+         margin-top: -140px;
+         margin-left: 50px;
+         
+    }
+
+    #abstandsChartDiv{
+         margin-right: 0px;
+         margin-top: 250px;
+         margin-left: 50px;
+    }
+
     .farbe-unter-mbot-button{
-        margin-top: 1rem;
+        margin-top: 2.5rem;
         min-width: 1rem;
         max-width: 30%;
         height: 1rem;
-        margin-right: 0.5rem;
+        margin-right: 5.5rem;
     }
-    .lfc{
-        margin-top: -2rem;
+    
+    
+    
+    .settings-p.lfrf.lfc{
+        margin-top: -2.0rem;
     }
+    
+    
+   
     .lft{
         margin-top: .2rem;
-        margin-left: 2rem;
+        margin-left: 3.5rem;
     }
     .colorbuttons{
-        margin-top: 2.5rem;
+        margin-top: 4.5rem;
         margin-left: -10.5rem;
     }
     .scp1{
         margin-right: 0rem;
-        margin-left: 3.8rem;
+        margin-left: 2.8rem;
+        margin-top: -1.2rem;
     }
+
+
     .scpcb{
         margin-top: -1rem;
         margin-left: 5rem;
+        margin-top: -5.2rem;
     }
     .bs{
         margin-top: 2.5rem;
@@ -403,4 +494,13 @@ p {
     .fut{
         margin-left: 5.5rem;
     }
+    .settings-p {
+        margin-top: 20px;
+       
+    }
+    
+    .dropbtn{
+        margin-top: 20%;
+    }
+    
 }

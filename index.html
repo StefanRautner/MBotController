@@ -21,7 +21,7 @@
     <h2 class="logo"><a style="text-decoration: none; color: inherit;" href="https://github.com/Mbot2-Group5">Group 5</a></h2>
     <nav class="navigation">
         <div class="button-container-small">
-            <button class="btnLogin-popup" id="phone-login">Game</button>
+            <button class="btnLogin-popup" id="phone-login">Login</button>
             <div class="icon-menu">&#9776;</div> <!-- Hamburger icon for mobile -->
         </div>
         <a class="anav" href="start.html#home">Home</a>
@@ -128,10 +128,12 @@
             </div>
             <button class="Connect" onclick="connectToFormerMBot()">Connect</button>
             <button class="Disconnect" onclick="disconnectFromMBot2()">Disconnect</button>
-            <button onclick="removeFromFormerConnected()">Entfernen</button>
+            <button class = "RemoveButton" onclick="removeFromFormerConnected()">Entfernen</button>
         </div>
-        <div>
+        <div id = "beschleunigungsChartDiv" >
             <canvas id="beschleunigungsChart"></canvas>
+        </div>
+        <div id = "abstandsChartDiv" >
             <canvas id="abstandsChart"></canvas>
         </div>
     </div>
@@ -145,6 +147,13 @@
 <script type="module" src="librarys/modelViewer/model-viewer-lib.js"></script>
 
 <script>
+
+    var Canvas1 = document.getElementById('beschleunigungsChart');
+    var context = Canvas1.getContext('2d');
+    context.fillStyle='white';
+
+    var Canvas2 = document.getElementById('abstandsChart');
+
     window.addEventListener("resize", function () {
         const label1 = document.querySelector(".fum");
         if (window.innerWidth < 610) {

@@ -38,6 +38,7 @@ html {
 
 }
 #parallax-text {
+    margin-top: 120px;
     position: absolute;
     top: 27%;
     left: 50%;
@@ -156,6 +157,7 @@ html {
         position: absolute;
         top: 40%;
         left: 55%;
+        margin-top: 0;
         transform: translate(-50%, -50%);
         font-size: 10vw;
         color: white;

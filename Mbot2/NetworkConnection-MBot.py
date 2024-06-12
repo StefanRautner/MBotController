@@ -3,6 +3,7 @@
 import _thread
 import json
 import time
+
 import cyberpi
 import network
 import usocket
@@ -31,8 +32,7 @@ class MBotController:
             wifi = network.WLAN(network.STA_IF)
             try:
                 wifi.active(True)
-                # wifi.connect('htljoh-public', 'joh12345')
-                wifi.connect('UBNT', 'Ste06fan')
+                wifi.connect('htljoh-public', 'joh12345')
             except Exception as exception:
                 cyberpi.console.clear()
                 cyberpi.console.print("Error at initializing Connection to WLAN: " + str(exception))
