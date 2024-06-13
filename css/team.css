@@ -1,17 +1,17 @@
 .cards {
-  margin-left: 5%; /* Adjust margins for smaller screens */
+  margin-left: 5%;
   margin-right: 5%;
   display: flex;
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
-  justify-content: center; /* Center items horizontally */
-  gap: 20px; /* Add some gap between grid items */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
   padding: 25px 0;
   list-style: none;
   overflow-x: auto;
 }
 
 .card {
-  flex: 1 0 20rem; /* Flexible width with minimum width of 20rem */
+  flex: 1 0 20rem;
   margin-right: 3%;
   display: flex;
   flex-direction: column;
