@@ -22,75 +22,82 @@
 
 # Inhalt
 
-1.	Allgemeines / Projektübersicht
-1.1 Projektbeschreibung
-1.2 Projektteam und Schnittstellen
-2.	Funktionale Anforderungen
-2.1 Use Cases
-2.1.1 Download Webapp
-2.1.2 Download MBot-Script
-2.1.3 Download & Start Zwischenserver
-2.1.4 Steuerung des MBot
-2.1.5 LineFollower
-2.1.6 SuicidePrevention
-2.1.7 Ambientebeleuchtung
-2.1.8 DinoGame
-3.	Nichtfunktionale Anforderungen
-4.	Projektplanung
-4.1 Variantenbildung
-4.2 Machbarkeitsstudie
-4.3 Allgemeine Planungsinformationen
-4.4 Projektumfeldanalyse
-5.	Softwarearchitektur
-5.1 Aktivitätsdiagramme
-5.1.1 MBot suchen & verbinden
-5.1.2 Daten an den MBot senden & Sensordaten vom MBot erhalten
-5.1.3 Von dem MBot Trennen
-5.1.4 Webapp schließen
-5.2 Sequenzdiagramme
-5.2.1 Sequenzdiagramm MBot Verbinden
-5.2.2 Sequenzdiagramm Daten Senden
-5.2.3 Sequenzdiagramm Disconnect
-5.2.4 Sequenzdiagramm Close
-5.3 Komponentendiagramme
-5.4 Verteilungsdiagramme
-5.5 Softwarekomponenten / Programme
-5.5.1 SW Programme
-5.5.2 SW Komponenten
-6.	Projektdurchführung
-6.1 Sprint 1
-6.1.1 Sprintplanung
-6.1.2 Sprint Demo
-6.1.3 Sprint Retrospektive
-6.1.4 Sprint Zusammenfassung
-6.2 Sprint 2
-6.2.1 Sprintplanung
-6.2.2 Sprint Demo
-6.2.3 Sprint Retrospektive
-6.2.4 Sprint Zusammenfassung
-6.3 Sprint 3
-6.3.1 Sprintplanung
-6.3.2 Sprint Demo
-6.3.3 Sprint Retrospektive
-6.3.4 Sprint Zusammenfassung
-6.4 Sprint 4
-6.4.1 Sprintplanung
-6.4.2 Sprint Demo
-6.4.3 Sprint Retrospektive
-6.4.4 Sprint Zusammenfassung
-6.5 Sprint 5
-6.5.1 Sprintplanung
-6.5.2 Sprint Demo
-6.5.3 Sprint Retrospektive
-6.5.4 Sprint Zusammenfassung
-7.	Installation / Software deployment
-8.	Projektabschluss
-8.1 Projektzusammenfassung
-8.2 Attachments
+1. [Allgemeines / Projektübersicht](#1-allgemeines--projektübersicht)
+   1.1 [Projektbeschreibung](#11-projektbeschreibung)
+   1.2 [Projektteam und Schnittstellen](#12-projektteam-und-schnittstellen)
 
- 
+2. [Funktionale Anforderungen](#2-funktionale-anforderungen)
+   2.1 [Use Cases](#21-use-cases)
+   2.1.1 [Download Webapp](#211-download-webapp)
+   2.1.2 [Download MBot-Script](#212-download-mbot-script)
+   2.1.3 [Download & Start Zwischenserver](#213-download--start-zwischenserver)
+   2.1.4 [Steuerung des MBot](#214-steuerung-des-mbot)
+   2.1.5 [LineFollower](#215-linefollower)
+   2.1.6 [SuicidePrevention](#216-suicideprevention)
+   2.1.7 [Ambientebeleuchtung](#217-ambientebeleuchtung)
+   2.1.8 [DinoGame](#218-dinogame)
 
-# 1.	Allgemeines / Projektübersicht
+3. [Nichtfunktionale Anforderungen](#3-nichtfunktionale-anforderungen)
+
+4. [Projektplanung](#4-projektplanung)
+   4.1 [Variantenbildung](#41-variantenbildung)
+   4.2 [Machbarkeitsstudie](#42-machbarkeitsstudie)
+   4.3 [Allgemeine Planungsinformationen](#43-allgemeine-planungsinformationen)
+   4.4 [Projektumfeldanalyse](#44-projektumfeldanalyse)
+
+5. [Softwarearchitektur](#5-softwarearchitektur)
+   5.1 [Aktivitätsdiagramme](#51-aktivitätsdiagramme)
+   5.1.1 [MBot suchen & verbinden](#511-mbot-suchen--verbinden)
+   5.1.2 [Daten an den MBot senden & Sensordaten vom MBot erhalten](#512-daten-an-den-mbot-senden--sensordaten-vom-mbot-erhalten)
+   5.1.3 [Von dem MBot trennen](#513-von-dem-mbot-trennen)
+   5.1.4 [Webapp schließen](#514-webapp-schließen)
+   5.2 [Sequenzdiagramme](#52-sequenzdiagramme)
+   5.2.1 [Sequenzdiagramm MBot verbinden](#521-sequenzdiagramm-mbot-verbinden)
+   5.2.2 [Sequenzdiagramm Daten senden](#522-sequenzdiagramm-daten-senden)
+   5.2.3 [Sequenzdiagramm Disconnect](#523-sequenzdiagramm-disconnect)
+   5.2.4 [Sequenzdiagramm Close](#524-sequenzdiagramm-close)
+   5.3 [Komponentendiagramme](#53-komponentendiagramme)
+   5.4 [Verteilungsdiagramme](#54-verteilungsdiagramme)
+   5.5 [Softwarekomponenten / Programme](#55-softwarekomponenten--programme)
+   5.5.1 [SW Programme](#551-sw-programme)
+   5.5.2 [SW Komponenten](#552-sw-komponenten)
+
+6. [Projektdurchführung](#6-projektdurchführung)
+   6.1 [Sprint 1](#61-sprint-1)
+   6.1.1 [Sprintplanung](#611-sprintplanung)
+   6.1.2 [Sprint Demo](#612-sprint-demo)
+   6.1.3 [Sprint Retrospektive](#613-sprint-retrospektive)
+   6.1.4 [Sprint Zusammenfassung](#614-sprint-zusammenfassung)
+   6.2 [Sprint 2](#62-sprint-2)  
+   6.2.1 [Sprintplanung](#621-sprintplanung)
+   6.2.2 [Sprint Demo](#622-sprint-demo)
+   6.2.3 [Sprint Retrospektive](#623-sprint-retrospektive)
+   6.2.4 [Sprint Zusammenfassung](#624-sprint-zusammenfassung)
+   6.3 [Sprint 3](#63-sprint-3)  
+   6.3.1 [Sprintplanung](#631-sprintplanung)
+   6.3.2 [Sprint Demo](#632-sprint-demo)
+   6.3.3 [Sprint Retrospektive](#633-sprint-retrospektive)
+   6.3.4 [Sprint Zusammenfassung](#634-sprint-zusammenfassung)
+   6.4 [Sprint 4](#64-sprint-4)
+   6.4.1 [Sprintplanung](#641-sprintplanung)
+   6.4.2 [Sprint Demo](#642-sprint-demo)
+   6.4.3 [Sprint Retrospektive](#643-sprint-retrospektive)
+   6.4.4 [Sprint Zusammenfassung](#644-sprint-zusammenfassung)
+   6.5 [Sprint 5](#65-sprint-5)
+   6.5.1 [Sprintplanung](#651-sprintplanung)
+   6.5.2 [Sprint Demo](#652-sprint-demo)
+   6.5.3 [Sprint Retrospektive](#653-sprint-retrospektive)
+   6.5.4 [Sprint Zusammenfassung](#654-sprint-zusammenfassung)
+
+7. [Installation / Software deployment](#7-installation--software-deployment)
+
+8. [Projektabschluss](#8-projektabschluss)
+   8.1 [Projektzusammenfassung](#81-projektzusammenfassung)
+   8.2 [Attachments](#82-attachments)
+
+
+
+# 1. Allgemeines / Projektübersicht
 ## 1.1 Projektbeschreibung
 Das Projekt zielt darauf ab, eine Anwendung zur Fernsteuerung eines MBot2s zu entwickeln, die sowohl auf Computern als auch auf mobilen Geräten (Handys, Tablets, …) funktioniert. Der MBot2 ist mit diversen Sensoren und Aktoren ausgestattet und wird über MicroPython programmiert. Die Anwendung ermöglicht die automatische Netzwerkverbindung, zeigt Sensordaten an und erlaubt das Verarbeiten von Steuerbefehlen wie Bewegungsrichtung und Geschwindigkeit. Ein Sicherheitsmodus verhindert Kollisionen und einen Linienfolgemodus zum automatischen Folgen einer Linie. Das Projekt wird dem agilen Projektmanagement SCRUM durchgeführt. Die Projektlaufzeit ist vom 10. Januar 2024 bis zum 12. Juni 2024.
 
@@ -103,7 +110,7 @@ Group05
 Backend Developer	Stefan Rautner	Privat	Stefan.rautner@htl-saalfelden.at 
 Group05
 
-# 2.	Funktionale Anforderungen
+# 2. Funktionale Anforderungen
 ## 2.1 Use Cases
 ### 2.1.1 Download Webapp
  
@@ -160,14 +167,14 @@ Vorbedingung: Benutzer muss funktionierenden Internetzugang und Zugang zur Webap
 Beschreibung: Der Benutzer öffnet in der Navigationsleiste den Tab „Dino-Game“ und kann dort eine abgespeckte Version des originalen Dino-Games von Google spielen.
 Ergebnis: Der Benutzer kann das Dino-Game spielen.
 
-# 3.	Nichtfunktionale Anforderungen
+# 3. Nichtfunktionale Anforderungen
 Benutzer benötigt einen PC
 Benutzer benötigt einen Browser
 Benutzer benötigt eine funktionierende Internetverbindung
 
 Verwendetes Betriebssystem: Windows 11 64-bit
 Verwendete IDEs: PyCharm Version 2024.1.1 & Mblock Version 5.4.3
-# 4.	Projektplanung
+# 4. Projektplanung
 Webapp in den Sprachen HTML, CSS & JS
 Zwischenserver in der Sprache Python
 MBot in der Sprache Micropython
@@ -271,7 +278,7 @@ Hersteller: Python Software Foundation (Guido van Rossum)
 Downloadlink: https://www.microsoft.com/store/productId/9NCVDN91XZQP?ocid=pdpshare
 Lizenz: https://docs.python.org/3/license.html 
 
-# 6.	Projektdurchführung
+# 6. Projektdurchführung
 ## 6.1 Sprint 1
 ### 6.1.1 Sprintplanung
 Dauer: 07.02.2024 – 28.02.2024
@@ -531,11 +538,11 @@ Auf Basis dieser Sprint Velocity wird das Projekt genau zum Abgabepunkt fertig.
 Die Durchschnittliche Sprint Velocity beträgt jetzt 40,2.
 
 
-# 7.	Installation / Software deployment
+# 7. Installation / Software deployment
 Windows Store öffnen > Python 3.12 suchen > installieren
 JetBrains Website öffnen > PyCharm suchen > herunterladen > .exe ausführen
 Visual Studio Website öffnen > VS-Code suchen > herunterladen > .exe ausführen
-# 8.	Projektabschluss
+# 8. Projektabschluss
 ## 8.1 Projektzusammenfassung
 Prinzipiell lief das Projekt gut. Manchmal war die Produktivität eher gering, aber es wurde trotz allem das Projekt erfolgreich fertig gestellt. Die Arbeitsaufteilung im Team war ehrlich gesagt eher mangelhaft, hauptsächlich aufgrund des Engagements einzelner Teammitglieder.
 
