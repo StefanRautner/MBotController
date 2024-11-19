@@ -1,4 +1,4 @@
-| **Projektbezeichnung** | MBot-Controller                                  |
+| **Projektbezeichnung** | MBot-Controller                                 |
 |-------------------------|------------------------------------------------|
 | **Projektteam**         | Tobias Haas, Patrick Thor, Stefan Rautner      |
 | **Erstellt am**         | 27.05.2024                                     |
@@ -16,8 +16,8 @@
 | 1   | 27.05.2024 | 1.0     | Alle               | Erstellung       | Stefan Rautner |
 | 2   | 28.05.2024 | 1.1     | 5.1, 5.2           | Ergänzung        | Stefan Rautner |
 | 3   | 05.06.2024 | 1.2     | 5                  | Ergänzung        | Stefan Rautner |
-| 4   | 07.06.2024 | 1.3     | 1, 2, 3, 4, 5      | Änderung         | Stefan Rautner |
-| 5   | 08.06.2024 | 1.4     | 5, 6, 7, 8         | Änderung         | Stefan Rautner |
+| 4   | 07.06.2024 | 1.3     | 1, 2, 3, 4, 5      | Ergänzung        | Stefan Rautner |
+| 5   | 08.06.2024 | 1.4     | 5, 6, 7, 8         | Ergänzung        | Stefan Rautner |
 
 
 # Inhalt
@@ -102,13 +102,11 @@
 Das Projekt zielt darauf ab, eine Anwendung zur Fernsteuerung eines MBot2s zu entwickeln, die sowohl auf Computern als auch auf mobilen Geräten (Handys, Tablets, …) funktioniert. Der MBot2 ist mit diversen Sensoren und Aktoren ausgestattet und wird über MicroPython programmiert. Die Anwendung ermöglicht die automatische Netzwerkverbindung, zeigt Sensordaten an und erlaubt das Verarbeiten von Steuerbefehlen wie Bewegungsrichtung und Geschwindigkeit. Ein Sicherheitsmodus verhindert Kollisionen und einen Linienfolgemodus zum automatischen Folgen einer Linie. Das Projekt wird dem agilen Projektmanagement SCRUM durchgeführt. Die Projektlaufzeit ist vom 10. Januar 2024 bis zum 12. Juni 2024.
 
 ## 1.2 Projektteam und Schnittstellen
-Rolle(n)	Name	Telefon	E-Mail	Team
-Frontend Developer	Tobias Haas	Privat	Tobias.haas@htl-saalfelden.at
-Group05
-3D-Designer	Patrick Thor	Privat	Patrick.thor@htl-saalfeldelden.at
-Group05
-Backend Developer	Stefan Rautner	Privat	Stefan.rautner@htl-saalfelden.at 
-Group05
+| Rolle(n)           | Name             | Telefon | E-Mail                              | Team    |
+|--------------------|------------------|---------|-------------------------------------|---------|
+| Frontend Developer | Tobias Haas      | Privat  | Tobias.haas@htl-saalfelden.at       | Group05 |
+| 3D-Designer        | Patrick Thor     | Privat  | Patrick.thor@htl-saalfelden.at      | Group05 |
+| Backend Developer  | Stefan Rautner   | Privat  | Stefan.rautner@htl-saalfelden.at    | Group05 |
 
 # 2. Funktionale Anforderungen
 ## 2.1 Use Cases
