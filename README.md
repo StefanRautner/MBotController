@@ -244,9 +244,54 @@ Der Benutzer sendet den „Disconnect“-Befehl an den Zwischenserver, dieser se
 Der Benutzer sendet den „Close“-Befehl an den Zwischenserver, dieser sendet dann eine „disconnect“-Nachricht an den MBot und schließt die TCP-Socket Verbindung zum MBot und den WebSocket. Der MBot startet dann sein Skript neu.
 
 ## 5.3 Komponentendiagramme
+
+```mermaid
+graph TD
+    A[<<component>> mBot]
+    B[<<component>> Zwischenserver]
+    C[<<component>> WebApp]
+
+    A -->|Sendet Sensordaten| B
+    B -->|Leitet Sensordaten weiter| C
+    C -->|Sendet Befehle| B
+    B -->|Leitet Befehlsdaten weiter| A
+
+    B -->|Hört auf Broadcast von mBot| A
+    B -->|Sendet mögliche mBots zu mBot| A
+
+    A:::mbot
+    B:::zwischenserver
+    C:::webapp
+
+    style A fill:#fff,stroke:#000,stroke-width:1px
+    style B fill:#fff,stroke:#000,stroke-width:1px
+    style C fill:#fff,stroke:#000,stroke-width:1px
+```
  
 ## 5.4 Verteilungsdiagramme
- 
+```mermaid
+graph TD
+    subgraph WebApp
+        A[Benutzereingabe]
+        B[Verarbeitet Sensordaten]
+        C[Sendet Befehle]
+        A --> B --> C
+    end
+
+    subgraph Zwischenserver
+        D[System Zwischenserver]
+    end
+
+    subgraph MBot
+        E[Sendet Sensordaten]
+        F[Empfängt und verarbeitet Befehlsdaten]
+        E --> F
+    end
+
+    C -->|WebSocket: 0.0.0.0:5431| D
+    D -->|UDP: 255.255.255.255:4900| E
+    D -->|TCP: 10.10.x.x:5431| F
+```
 
 ## 5.5 Softwarekomponenten / Programme
 ### 5.5.1 SW Programme
